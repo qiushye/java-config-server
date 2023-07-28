@@ -1,0 +1,29 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/qiushye/config-repo.git
+          searchPaths: dev
+          default-label: master
+          username: qiushye
+          password: 19951120qxy
+---
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
